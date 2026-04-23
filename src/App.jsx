@@ -383,35 +383,61 @@ export default function RadonSenseLanding() {
               Laissez vos coordonnées pour suivre le projet ou partager vos besoins.
             </p>
 
-            <form className="mt-6 space-y-4">
-              <input
-                className="w-full rounded-2xl border border-white/10 bg-[#120c09] px-4 py-3 text-white outline-none placeholder:text-stone-500"
-                placeholder="Nom"
-              />
+			<form
+			  action="https://api.web3forms.com/submit"
+			  method="POST"
+			  className="mt-6 space-y-4"
+			>
+			  {/* clé Web3Forms */}
+			  <input type="hidden" name="access_key" value="029d0cad-301b-49af-aecc-66b03751e4cf" />
 
-              <input
-                className="w-full rounded-2xl border border-white/10 bg-[#120c09] px-4 py-3 text-white outline-none placeholder:text-stone-500"
-                placeholder="Email"
-              />
+			  {/* personnalisation du mail */}
+			  <input type="hidden" name="subject" value="Nouveau contact Radon Sense" />
+			  <input type="hidden" name="from_name" value="Radon Sense" />
 
-              <select className="w-full rounded-2xl border border-white/10 bg-[#120c09] px-4 py-3 text-stone-300 outline-none">
-                <option>Je suis un particulier</option>
-                <option>Je suis propriétaire / régie</option>
-                <option>Je représente une école / organisation</option>
-              </select>
+			  {/* anti-spam */}
+			  <input type="checkbox" name="botcheck" className="hidden" />
 
-              <textarea
-                className="min-h-32 w-full rounded-2xl border border-white/10 bg-[#120c09] px-4 py-3 text-white outline-none placeholder:text-stone-500"
-                placeholder="Qu’attendriez-vous d’un outil comme Radon Sense ?"
-              />
+			  {/* champs */}
+			  <input
+				type="text"
+				name="name"
+				placeholder="Nom"
+				required
+				className="w-full rounded-2xl border border-white/10 bg-[#120c09] px-4 py-3 text-white"
+			  />
 
-              <button
-                type="button"
-                className="w-full rounded-2xl bg-gradient-to-r from-orange-400 to-amber-300 px-5 py-3.5 font-semibold text-stone-950 shadow-lg shadow-orange-900/30"
-              >
-                Être informé du projet
-              </button>
-            </form>
+			  <input
+				type="email"
+				name="email"
+				placeholder="Email"
+				required
+				className="w-full rounded-2xl border border-white/10 bg-[#120c09] px-4 py-3 text-white"
+			  />
+
+			  <select
+				name="profile"
+				className="w-full rounded-2xl border border-white/10 bg-[#120c09] px-4 py-3 text-white"
+			  >
+				<option>Particulier</option>
+				<option>Propriétaire / régie</option>
+				<option>Organisation</option>
+			  </select>
+
+			  <textarea
+				name="message"
+				placeholder="Qu’attendriez-vous d’un outil comme Radon Sense ?"
+				required
+				className="w-full min-h-32 rounded-2xl border border-white/10 bg-[#120c09] px-4 py-3 text-white"
+			  />
+
+			  <button
+				type="submit"
+				className="w-full rounded-2xl bg-gradient-to-r from-orange-400 to-amber-300 px-5 py-3.5 font-semibold text-black"
+			  >
+				Être informé du projet
+			  </button>
+			</form>
           </div>
         </div>
       </section>
